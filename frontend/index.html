@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TouhedaLanguage</title>
+    <meta name="description" content="Learn and code with TouhedaLanguage.">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- CodeMirror Editor Stylesheet -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="nav-container">
+
+            <a href="#home" class="brand-name">
+                TouhedaLanguage
+            </a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#my-code">My Code</a>
+                <a href="#documentation">Documentation</a>
+                <a href="#about">About</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <h1>TouhedaLanguage</h1>
+
+        <p>Code ke voi noi cholo joy kori. Cholo code kori, notun kichu shikhi.</p>
+
+    </section>
+
+    <main class="main-container">
+
+        <!-- =================================
+             MY CODE
+        ================================== -->
+
+        <section class="playground-section" id="my-code">
+
+            <!-- Toolbar -->
+            <div class="playground-toolbar">
+
+                <div>
+                    <h2>My Code</h2>
+                    <p>Write your code and see the output.</p>
+                </div>
+
+                <div class="editor-actions">
+
+                    <label class="autosave-control">
+                        <input
+                            type="checkbox"
+                            id="autoSaveToggle"
+                            checked
+                        >
+                        Auto Save
+                    </label>
+
+                    <button
+                        id="runButton"
+                        class="run-button"
+                        type="button"
+                    >
+                        Run
+                    </button>
+
+                    <button
+                        id="compileButton"
+                        class="compile-button"
+                        type="button"
+                    >
+                        Compile
+                    </button>
+
+                    <button
+                        id="clearButton"
+                        class="clear-button"
+                        type="button"
+                    >
+                        Clear
+                    </button>
+
+                    <button
+                        id="openButton"
+                        class="open-button"
+                        type="button"
+                    >
+                        Open
+                    </button>
+
+                    <button
+                        id="saveButton"
+                        class="save-button"
+                        type="button"
+                    >
+                        Save
+                    </button>
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        accept=".tou,.txt"
+                        hidden
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- Editor Workspace -->
+            <div class="editor-workspace">
+
+                <!-- INPUT PANEL -->
+                <div class="editor-panel">
+
+                    <div class="panel-heading">
+
+                        <h3>Input</h3>
+
+                        <span>TouhedaLanguage</span>
+
+                    </div>
+
+                    <div class="editor-content">
+
+                        <div
+                            class="line-numbers"
+                            id="lineNumbers"
+                        >
+                            1
+                        </div>
+
+                        <textarea
+                            id="codeEditor"
+                            spellcheck="false"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            placeholder="Write your TouhedaLanguage code here..."
+                        >dhori name = "Touheda"
+dekhao("Hello " + name)</textarea>
+
+                    </div>
+
+                    <div class="editor-footer">
+
+                        <span id="editorStatus">
+                            Ready to code
+                        </span>
+
+                        <span id="lineCount">
+                            2 lines
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- OUTPUT PANEL -->
+                <div class="output-panel">
+
+                    <div class="panel-heading">
+
+                        <h3>Output</h3>
+
+                        <span id="outputStatus">
+                            Waiting
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="output-content"
+                        id="output"
+                        aria-live="polite"
+                    >
+                        <p class="placeholder-text">
+                            Your program output will appear here.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             DOCUMENTATION
+        ================================== -->
+
+        <section
+            class="documentation-section"
+            id="documentation"
+        >
+
+            <div class="documentation-header">
+
+                <div>
+
+                    <h2>Documentation</h2>
+
+                    <p>
+                        Cholo, ekdom shuru theke coding shikhi.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="documentation-layout">
+
+                <!-- DOCUMENTATION SIDEBAR -->
+                <aside class="docs-sidebar">
+
+                    <button
+                        class="docs-link active"
+                        data-doc="general"
+                        type="button"
+                    >
+                        Introduction
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="variables"
+                        type="button"
+                    >
+                        Variables
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="types"
+                        type="button"
+                    >
+                        Data Types
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="output"
+                        type="button"
+                    >
+                        Output
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="operators"
+                        type="button"
+                    >
+                        Operators
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="conditions"
+                        type="button"
+                    >
+                        If Else
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="loops"
+                        type="button"
+                    >
+                        Loops
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="functions"
+                        type="button"
+                    >
+                        Functions
+                    </button>
+
+                    <button
+                        class="docs-link"
+                        data-doc="practice"
+                        type="button"
+                    >
+                        Practice Code
+                    </button>
+
+                </aside>
+
+
+                <!-- DOCUMENTATION CONTENT -->
+                <div class="docs-content">
+
+                    <!-- INTRODUCTION -->
+                    <article
+                        class="doc-page active"
+                        id="doc-general"
+                    >
+
+                        <h3>Introduction</h3>
+
+                        <p>
+                            Ekhane amra TouhedaLanguage-er basic code
+                            theke aste aste programming shikhbo.
+                        </p>
+
+                        <h4>My First Code</h4>
+
+                        <pre><code>dekhao("Hello World")</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dekhao("Hello World")'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                        <h4>Basic Rules</h4>
+
+                        <ul>
+                            <li>Code lekhar jonno nijer language-er keyword use korte hobe.</li>
+                            <li>String lekhar jonno double quotation use korte hobe.</li>
+                            <li>Condition ebong loop-er jonno parentheses use korte hobe.</li>
+                            <li>Code block-er jonno curly braces use korte hobe.</li>
+                            <li>Protiti statement alada line-e lekha jabe.</li>
+                        </ul>
+
+                    </article>
+
+
+                    <!-- VARIABLES -->
+                    <article
+                        class="doc-page"
+                        id="doc-variables"
+                    >
+
+                        <h3>Variables</h3>
+
+                        <p>
+                            Variable-er moddhe amra kono value rekhe
+                            pore seta use korte pari.
+                        </p>
+
+                        <h4>Syntax</h4>
+
+                        <pre><code>dhori variableName = value</code></pre>
+
+                        <h4>Example</h4>
+
+                        <pre><code>dhori name = "Touheda"
+dhori age = 20
+
+dekhao(name)
+dekhao(age)</code></pre>
+
+                        <h4>Output</h4>
+
+                        <pre><code>Touheda
+20</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dhori name = "Touheda"
+dhori age = 20
+dekhao(name)
+dekhao(age)'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- DATA TYPES -->
+                    <article
+                        class="doc-page"
+                        id="doc-types"
+                    >
+
+                        <h3>Data Types</h3>
+
+                        <p>
+                            TouhedaLanguage-e amra number, text ebong
+                            true-false value use korte pari.
+                        </p>
+
+                        <h4>Example</h4>
+
+                        <pre><code>dhori age = 20
+dhori name = "Touheda"
+dhori active = true
+dhori passed = false
+
+dekhao(age)
+dekhao(name)
+dekhao(active)
+dekhao(passed)</code></pre>
+
+                        <h4>Output</h4>
+
+                        <pre><code>20
+Touheda
+true
+false</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dhori age = 20
+dhori name = "Touheda"
+dhori active = true
+dhori passed = false
+dekhao(age)
+dekhao(name)
+dekhao(active)
+dekhao(passed)'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- OUTPUT -->
+                    <article
+                        class="doc-page"
+                        id="doc-output"
+                    >
+
+                        <h3>Output</h3>
+
+                        <p>
+                            Screen-e kono kichu dekhate
+                            <code>dekhao</code> use korte hoy.
+                        </p>
+
+                        <h4>Syntax</h4>
+
+                        <pre><code>dekhao(value)</code></pre>
+
+                        <h4>Example</h4>
+
+                        <pre><code>dekhao("Hello World")
+dekhao(100)
+dekhao(10 + 20)</code></pre>
+
+                        <h4>Output</h4>
+
+                        <pre><code>Hello World
+100
+30</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dekhao("Hello World")
+dekhao(100)
+dekhao(10 + 20)'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- OPERATORS -->
+                    <article
+                        class="doc-page"
+                        id="doc-operators"
+                    >
+
+                        <h3>Operators</h3>
+
+                        <p>
+                            Operators diye amra calculation ebong
+                            comparison korte pari.
+                        </p>
+
+                        <h4>Arithmetic Operators</h4>
+
+                        <pre><code>dhori a = 10
+dhori b = 5
+
+dekhao(a + b)
+dekhao(a - b)
+dekhao(a * b)
+dekhao(a / b)
+dekhao(a % b)</code></pre>
+
+                        <h4>Comparison Operators</h4>
+
+                        <pre><code>dekhao(a == b)
+dekhao(a not = b)
+dekhao(a boro b)
+dekhao(a choto b)
+dekhao(a boro ba soman b)
+dekhao(a choto ba soman b)</code></pre>
+
+                        <h4>Logical Operators</h4>
+
+                        <pre><code>and
+or
+not</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dhori a = 10
+dhori b = 5
+dekhao(a + b)
+dekhao(a - b)
+dekhao(a * b)
+dekhao(a / b)
+dekhao(a % b)'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- CONDITIONS -->
+                    <article
+                        class="doc-page"
+                        id="doc-conditions"
+                    >
+
+                        <h3>If Else</h3>
+
+                        <p>
+                            Kono condition true naki false seta
+                            check korar jonno jodi ebong nahole use kori.
+                        </p>
+
+                        <h4>Syntax</h4>
+
+                        <pre><code>jodi(condition) {
+    // code
+} nahole {
+    // code
+}</code></pre>
+
+                        <h4>Example</h4>
+
+                        <pre><code>dhori age = 20
+
+jodi(age boro ba soman 18) {
+    dekhao("Adult")
+} nahole {
+    dekhao("Minor")
+}</code></pre>
+
+                        <h4>Output</h4>
+
+                        <pre><code>Adult</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dhori age = 20
+jodi(age boro ba soman 18) {
+    dekhao("Adult")
+} nahole {
+    dekhao("Minor")
+}'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- LOOPS -->
+                    <article
+                        class="doc-page"
+                        id="doc-loops"
+                    >
+
+                        <h3>Loops</h3>
+
+                        <p>
+                            Ekoi kaj koyekbar korar jonno
+                            loop use kora hoy.
+                        </p>
+
+                        <h4>Syntax</h4>
+
+                        <pre><code>loop(count) {
+    // code
+}</code></pre>
+
+                        <h4>Example</h4>
+
+                        <pre><code>loop(5) {
+    dekhao("Hello")
+}</code></pre>
+
+                        <h4>Output</h4>
+
+                        <pre><code>Hello
+Hello
+Hello
+Hello
+Hello</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='loop(5) {
+    dekhao("Hello")
+}'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- FUNCTIONS -->
+                    <article
+                        class="doc-page"
+                        id="doc-functions"
+                    >
+
+                        <h3>Functions</h3>
+
+                        <p>
+                            Function use kore amra ekta kajer code
+                            alada kore likhe pore abar use korte pari.
+                        </p>
+
+                        <h4>Example</h4>
+
+                        <pre><code>function jog(a, b) {
+    return(a + b)
+}
+
+dhori result = jog(10, 20)
+dekhao(result)</code></pre>
+
+                        <h4>Output</h4>
+
+                        <pre><code>30</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='function jog(a, b) {
+    return(a + b)
+}
+
+dhori result = jog(10, 20)
+dekhao(result)'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+
+                    <!-- PRACTICE -->
+                    <article
+                        class="doc-page"
+                        id="doc-practice"
+                    >
+
+                        <h3>Practice Code</h3>
+
+                        <p>
+                            Ebar nijer moto kore kichu choto problem
+                            solve korar chesta kori.
+                        </p>
+
+                        <h4>Practice 1: Add Two Numbers</h4>
+
+                        <pre><code>dhori a = 10
+dhori b = 20
+
+dhori result = a + b
+dekhao(result)</code></pre>
+
+                        <h4>Expected Output</h4>
+
+                        <pre><code>30</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dhori a = 10
+dhori b = 20
+dhori result = a + b
+dekhao(result)'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+
+                        <h4>Practice 2: Check Even or Odd</h4>
+
+                        <pre><code>dhori number = 8
+
+jodi(number % 2 == 0) {
+    dekhao("Even")
+} nahole {
+    dekhao("Odd")
+}</code></pre>
+
+                        <h4>Expected Output</h4>
+
+                        <pre><code>Even</code></pre>
+
+                        <button
+                            class="save-sample-button"
+                            data-save-code='dhori number = 8
+jodi(number % 2 == 0) {
+    dekhao("Even")
+} nahole {
+    dekhao("Odd")
+}'
+                            type="button"
+                        >
+                            Save Code
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+<!-- =================================
+             ABOUT
+================================== -->
+
+<section class="about-section" id="about">
+
+    <h2>      About Me     </h2>
+
+    <p>
+       "Ami Touheda, ami shopno dekhi nijer hate notun kichu toiri korar.
+    </p>
+
+    <p>
+        Coding-ke voy noi, cholo joy kori—protiti vul theke notun kichu shikhi.
+    </p>
+
+    <p>
+        Choto choto chesta ar notun chintay gore tuli nijer shopner jogot.
+    </p>
+
+    <p>
+        Cholo eksathe code kori, shikhi, srishti kori ar shopner pothe egiye jai."
+    </p>
+
+</section>
+
+</main>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            © 2026 TouhedaLanguage. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- CodeMirror Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+    <!-- CodeMirror Simple Mode -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/mode/simple.min.js"></script>
+
+    <!-- Main Application JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
